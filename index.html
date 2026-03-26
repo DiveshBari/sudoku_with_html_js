@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Responsive Sudoku</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="top-bar">
+      <h1>Sudoku</h1>
+      <div class="top-right">
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark mode">🌙</button>
+        <div id="timer" class="timer" aria-live="polite">00:00</div>
+      </div>
+    </header>
+
+    <main>
+      <section class="controls">
+        <label for="size-select">Grid Size</label>
+        <select id="size-select" aria-label="Select Sudoku grid size">
+          <option value="4">4x4 (Easy)</option>
+          <option value="6">6x6 (Medium)</option>
+          <option value="9" selected>9x9 (Standard)</option>
+        </select>
+
+        <button id="new-game-btn" class="primary">New Game</button>
+        <button id="restart-btn">Restart</button>
+        <button id="clear-btn">Clear Cell</button>
+        <button id="notes-btn" aria-pressed="false">Notes: Off</button>
+      </section>
+
+      <section class="board-wrapper" aria-label="Sudoku board section">
+        <div id="status" class="status">Tap any empty cell to begin.</div>
+        <div id="board" class="board" role="grid" aria-label="Sudoku Board"></div>
+      </section>
+    </main>
+  </div>
+
+  <aside id="numpad" class="numpad" aria-label="Number pad"></aside>
+
+  <div id="win-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="win-title">
+    <div class="modal-card">
+      <h2 id="win-title">🎉 Congratulations!</h2>
+      <p id="win-message">You solved the puzzle.</p>
+      <button id="play-again-btn" class="primary">Play Again</button>
+    </div>
+  </div>
+
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
